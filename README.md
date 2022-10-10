@@ -14,3 +14,7 @@ Suppose I'm connected in the public network, I need:
 2. Tell the victim that I'm the gateway
 
 Now I'm in the middle between the victim and the gateway!
+
+## What we need?
+
+1. List all IPs connected in the same newwork
