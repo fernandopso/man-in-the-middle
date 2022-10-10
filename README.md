@@ -17,4 +17,8 @@ Now I'm in the middle between the victim and the gateway!
 
 ## What we need?
 
-1. List all IPs connected in the same newwork
+1. List all IPs connected in the same network
+
+```
+sudo python3 ips_mapper.py
+```
