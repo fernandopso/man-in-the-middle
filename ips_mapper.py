@@ -21,13 +21,13 @@ def cidr_notation(network, netmask):
 
 if __name__ == "__main__":
     if os.geteuid() != 0:
-        print('You need to be root to run this script', file=sys.stderr)
+        print('Need root to run this script', file=sys.stderr)
         sys.exit(1)
 
     # https://scapy.readthedocs.io/en/latest/routing.html
     print(scapy.config.conf.route)
     
-    print("CIDR Notation:")
+    print("CIDR Notation")
     # Classless inter-domain routing (CIDR) is a set of Internet protocol (IP) standards
     # that is used to create unique identifiers for networks and individual devices.
     #
@@ -48,8 +48,8 @@ if __name__ == "__main__":
         ip = cidr_notation(network, netmask)
 
         if ip:
-            print("arping %s on %s" % (ip, interface))
-            ans, _ = scapy.layers.l2.arping(ip, iface=interface)
+            print("arping to ip %s on interface %s" % (ip, interface))
+            ans, _ = scapy.layers.l2.arping(ip, iface=interface, timeout=2, verbose=1)
             for _, r in ans.res:
                 line = r.sprintf("%Ether.src%  %ARP.psrc%")
                 try:
