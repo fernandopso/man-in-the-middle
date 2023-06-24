@@ -5,7 +5,6 @@ import scapy.route
 import scapy.layers.l2
 import math
 import socket
-import errno
 import os
 import sys
 
@@ -38,12 +37,9 @@ if __name__ == "__main__":
     # should receive incoming information packets. 
     for network, netmask, gateway, interface, output_ip, metric in scapy.config.conf.route.routes:
 
-        if network <= 0 or interface == 'lo' or output_ip == '127.0.0.1' or output_ip == '0.0.0.0' or netmask == 0xFFFFFFFF:
+        if network <= 0 or interface == 'lo' or output_ip == '127.0.0.1' or output_ip == '0.0.0.0' or netmask == 0xFFFFFFFF or netmask >= 0xFFFFFFFF:
             # skip network and default gateway
             continue
-
-        if (netmask <= 0 or netmask >= 0xFFFFFFFF):
-            raise ValueError("illegal netmask ", netmask)
 
         ip = cidr_notation(network, netmask)
 
