@@ -2,7 +2,7 @@
 
 A project just for study about Man in the Middle attack
 
-## Premise
+## Premise on the internet
 
 Everytime we connect any website the request will go through a `gateway` to come the website.
 
@@ -21,4 +21,10 @@ Now I'm in the middle between the victim and the gateway!
 
 ```
 sudo python3 ips_mapper.py
+```
+
+2. Configure man in the middle
+
+```
+python3 middle.py
 ```
